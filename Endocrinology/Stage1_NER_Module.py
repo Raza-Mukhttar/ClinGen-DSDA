@@ -122,9 +122,9 @@ def compute_class_weights(labels_list, n_labels):
 # ========== Main ==========
 
 def main():
-    # train_path = '/home/raza/EMRV1/EMRV2/datasets/ClinGen_TrainingSet.csv'
-    # val_path   = '/home/raza/EMRV1/EMRV2/datasets/ACI-TaskB-ValidationSet.csv'
-    # test_path  = '/home/raza/EMRV1/EMRV2/datasets/ACI-TaskB-TestingSet.csv'
+    # train_path = '/datasets/ACI-TaskB-TrainingSet.csv'
+    # val_path   = '/datasets/ACI-TaskB-ValidationSet.csv'
+    # test_path  = '/datasets/ACI-TaskB-TestingSet.csv'
     # Load dataset
     # Load datasets directly from Hugging Face
     # ---------------- LOAD ENDOCRINOLOGY DATASETS ----------------
@@ -143,7 +143,7 @@ def main():
     val_dialogues   = [str(x) for x in val_df["transcript"]]
     test_dialogues  = [str(x) for x in test_df["transcript"]]
 
-    outdir = '/home/raza/EMRV1/EMRV2/Endocrinology/outputs/stage1_outputs'
+    outdir = '/Endocrinology/outputs/stage1_outputs'
     os.makedirs(outdir, exist_ok=True)
     # --------------------------------------------------------------
 
@@ -152,7 +152,7 @@ def main():
           f"{len(test_dialogues)} test dialogues.")
 
 
-    # outdir = '/home/raza/EMRV1/EMRV2/Endocrinology/outputs/stage1_outputs'
+    # outdir = '/Endocrinology/outputs/stage1_outputs'
     # os.makedirs(outdir, exist_ok=True)
     
     
