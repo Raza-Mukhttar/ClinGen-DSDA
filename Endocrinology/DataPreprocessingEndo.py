@@ -1,6 +1,5 @@
 # Data Preprocessing
 
-# File: preprocess_endocrinology_structured.py
 import torch
 
 # Updated section schema reflecting actual structured notes
