@@ -1,0 +1,15 @@
+{
+  "rouge1":0.4850774039,
+  "rouge2":0.1920641021,
+  "rougeL":0.2893292496,
+  "rougeLsum":0.4486500829,
+  "bertscore_f1":0.8498024543,
+  "meteor":0.2821241861,
+  "bleu":7.6321928639,
+  "bleurt":0.4106338342,
+  "unieval_coherence":0.9280694704,
+  "unieval_consistency":0.8425011811,
+  "unieval_fluency":0.9077202981,
+  "unieval_relevance":0.9540327005,
+  "unieval_overall":0.9080809125
+}
