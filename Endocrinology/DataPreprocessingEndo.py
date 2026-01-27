@@ -2,7 +2,7 @@
 
 import torch
 
-# Updated section schema reflecting actual structured notes
+
 ENDO_SECTIONS = [
     "Demographics",
     "Presenting Illness",
