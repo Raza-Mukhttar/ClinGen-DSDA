@@ -1,8 +1,8 @@
-# Usage: python /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/testing.py 
-# --model_dir /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/checkpoints/llama_70b 
+# Usage: python /Baseline/gptfinetune/testing.py 
+# --model_dir /Baseline/gptfinetune/checkpoints/llama_70b 
 # --base_model meta-llama/Meta-Llama-3-70B-Instruct or deepseek-ai/DeepSeek-R1-Distill-Llama-70B or Qwen/Qwen2-7B-Instruct
-# --test_file /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/data/valid.jsonl 
-# --output_file /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/outputs/eval_aci_llama_70B.json
+# --test_file /Baseline/gptfinetune/data/valid.jsonl 
+# --output_file /Baseline/gptfinetune/outputs/eval_aci_llama_70B.json
 
 
 #!/usr/bin/env python3
@@ -26,7 +26,7 @@ from evaluate import load as load_metric
 
 # UniEval imports
 import sys
-sys.path.append("/home/raza/EMRV1/EMRV2/UniEval")
+sys.path.append("/UniEval")
 from utils import convert_to_json
 from metric.evaluator import get_evaluator
 
