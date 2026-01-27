@@ -765,7 +765,7 @@ if __name__ == "__main__":
     except Exception: pass
 
     trainer.train()
-    # trainer.save_model("/Endocrinology/outputs/model_training_outputs/llama70b_joint_summ_ckpt/final")
+    trainer.save_model("/Endocrinology/outputs/model_training_outputs/llama70b_joint_summ_ckpt/final")
     print("Stage 4 LLM training complete!")
 
     eval_logs = [log for log in trainer.state.log_history if "eval_loss" in log]
