@@ -1,8 +1,8 @@
 # Usage: LLaMA_70B model
-#python /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/tuning.py 
+#python /Baseline/gptfinetune/tuning.py 
 # --model_name meta-llama/Meta-Llama-3-70B-Instruct 
-# --dataset_path /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/data/train.jsonl 
-# --output_dir /home/raza/EMRV1/EMRV2/Baseline/gptfinetune/checkpoints/llama_70b
+# --dataset_path /Baseline/gptfinetune/data/train.jsonl 
+# --output_dir /Baseline/gptfinetune/checkpoints/llama_70b
 
 
 #!/usr/bin/env python3
