@@ -1,80 +1,3 @@
-# # File: medinotes_repro/scripts/data_load.py
-# """
-# Load pre-split ACI datasets (train/val/test) and convert them into
-# a unified JSONL format for downstream preprocessing.
-
-# Expected CSV columns:
-#     dialogue, note
-
-# Usage:
-#     python /home/raza/EMRV1/EMRV2/Baseline/medinotes/data_load.py \
-#         --train_csv /home/raza/EMRV1/datasets/ACI-TaskB-TrainingSet.csv \
-#         --val_csv /home/raza/EMRV1/datasets/ACI-TaskB-ValidationSet.csv \
-#         --test_csv /home/raza/EMRV1/datasets/ACI-TaskB-TestingSet.csv \
-#         --out /home/raza/EMRV1/EMRV2/Baseline/medinotes/data/processed.jsonl
-# """
-
-# import argparse
-# import json
-# import os
-# import pandas as pd
-
-
-# def load_csv(path: str, split: str):
-#     """Load a CSV and return list of dicts with required fields."""
-#     df = pd.read_csv(path)
-
-#     required = {"dialogue", "note"}
-#     missing = required - set(df.columns)
-#     if missing:
-#         raise ValueError(f"{path} missing required columns: {missing}")
-
-#     records = []
-#     for idx, row in df.iterrows():
-#         records.append({
-#             "id": f"{split}_{idx}",
-#             "dialogue": str(row["dialogue"]),
-#             "soap": str(row["note"]),
-#             "split": split
-#         })
-#     return records
-
-
-# def main():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument("--train_csv", required=True)
-#     parser.add_argument("--val_csv", required=True)
-#     parser.add_argument("--test_csv", required=True)
-#     parser.add_argument("--out", required=True)
-#     args = parser.parse_args()
-
-#     train_records = load_csv(args.train_csv, "train")
-#     val_records = load_csv(args.val_csv, "val")
-#     test_records = load_csv(args.test_csv, "test")
-
-#     all_records = train_records + val_records + test_records
-
-#     os.makedirs(os.path.dirname(args.out), exist_ok=True)
-#     with open(args.out, "w", encoding="utf-8") as f:
-#         for rec in all_records:
-#             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
-
-#     print(f"Saved {len(all_records)} total records → {args.out}")
-#     print(f"  Train: {len(train_records)}")
-#     print(f"  Val:   {len(val_records)}")
-#     print(f"  Test:  {len(test_records)}")
-
-
-# if __name__ == "__main__":
-#     main()
-
-
-
-
-
-
-
-
 # File: medinotes_repro/scripts/data_load.py
 """
 Unified data loader for:
@@ -104,9 +27,9 @@ python data_load.py \
 
 Usage (Endocrinology mode):
 ---------------------------
-python /home/raza/EMRV1/EMRV2/Baseline/medinotes/data_load.py \
+python /Baseline/medinotes/data_load.py \
     --dataset_type endo \
-    --out /home/raza/EMRV1/EMRV2/Baseline/medinotes/data/endo_processed.jsonl
+    --out /Baseline/medinotes/data/endo_processed.jsonl
 """
 
 import argparse
