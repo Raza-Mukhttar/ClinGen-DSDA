@@ -5,7 +5,7 @@ import os
 # -----------------------------
 # Configuration
 # -----------------------------
-OUTPUT_DIR = "/home/raza/EMRV1/EMRV2/datasets/learning_curve/Endocrinology"
+OUTPUT_DIR = "/datasets/learning_curve/Endocrinology"
 PERCENTAGES = [20, 30, 50, 60, 70, 80, 90]
 RANDOM_SEED = 42
 
