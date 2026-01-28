@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 # ================= Configuration =================
-output_dir = "/home/raza/EMRV1/EMRV2/outputs/learning_curve_graphics"
+output_dir = "/outputs/learning_curve_graphics"
 output_file = "learning_curves_metrics.png"
 save_figure = True  # Set False if you only want to display
 
