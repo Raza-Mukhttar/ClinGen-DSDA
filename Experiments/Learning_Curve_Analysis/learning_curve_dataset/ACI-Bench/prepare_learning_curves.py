@@ -2,8 +2,8 @@ import os
 import pandas as pd
 
 # ================= CONFIG =================
-SOURCE_TRAIN_CSV = "/home/raza/EMRV1/EMRV2/datasets/ACI-TaskB-TrainingSet.csv"
-OUTPUT_DIR       = "/home/raza/EMRV1/EMRV2/datasets/learning_curve"
+SOURCE_TRAIN_CSV = "/datasets/ACI-TaskB-TrainingSet.csv"
+OUTPUT_DIR       = "/datasets/learning_curve"
 
 SIZES = [10, 20, 30, 50, 67]
 RANDOM_SEED = 42
