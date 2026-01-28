@@ -79,7 +79,7 @@ def save_jsonl(records, path):
 # ============================================================
 # MAIN EXECUTION
 # ============================================================
-def main(output_dir="/Baseline/gptfinetune/data/endocrinology"):
+def main(output_dir="/gptfinetune/data/endocrinology"):
     os.makedirs(output_dir, exist_ok=True)
 
     train_df, val_df, test_df = load_endocrinology()
