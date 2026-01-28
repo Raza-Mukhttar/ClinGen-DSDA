@@ -1,5 +1,5 @@
-#!/usr/bin/env python3
-# python /home/raza/EMRV1/EMRV2/Baseline/venilla_models_exp.py   --model llama-3-70b   --dataset aci-bench  --sample_size 15   --temperature 0.7
+
+# python /Baseline/venilla_models_exp.py   --model llama-3-70b   --dataset aci-bench  --sample_size 15   --temperature 0.7
 # -*- coding: utf-8 -*-
 """
 Zero-shot structured note generation (no ICL) for ACI-Bench and Endocrinology datasets.
@@ -22,7 +22,7 @@ import argparse
 # CONFIG
 # ===============================================================
 MAX_OUTPUT_TOKENS = 2000
-OUTPUT_DIR = "/home/raza/EMRV1/EMRV2/Baseline/outputs"
+OUTPUT_DIR = "/Baseline/outputs"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # ===============================================================
@@ -64,7 +64,7 @@ def load_dataset_local_or_hf(dataset_name: str, sample_size: int = 20):
 
     elif dataset_name.lower() == "aci-bench":
         print("[cyan]Loading ACI-Bench dataset from local CSV...[/cyan]")
-        test_path = "/home/raza/EMRV1/EMRV2/datasets/ACI-TaskB-TestingSet.csv"
+        test_path = "/datasets/ACI-TaskB-TestingSet.csv"
         df = pd.read_csv(test_path)
 
         # Rename columns if needed
