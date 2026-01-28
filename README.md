@@ -17,7 +17,8 @@ pip install -r requirements.txt
 
 # Step 1: Training the Full Pipeline
 
-set number of gpus, like " --num_gpus=1 " depend on number of gpus availability
+set number of gpus, like " --num_gpus=1 " depend on number of gpus availability, you also can change the model if want to train with another specific backbone
+
 deepspeed --num_gpus=1 ./Stage4_LammaTraining.py
 
 # Step 2: Evaluation 
