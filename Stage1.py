@@ -1,4 +1,3 @@
-# BioBERT/ClinicalBERT NER
 import os, torch, numpy as np
 import pandas as pd
 from tqdm import tqdm
@@ -8,7 +7,7 @@ from seqeval.metrics import classification_report, f1_score
 import spacy
 import torch.nn as nn
 
-MODEL_NAME = "emilyalsentzer/Bio_ClinicalBERT" 
+MODEL_NAME = "emilyalsentzer/Bio_ClinicalBERT"   
 SPACY_MODEL = "en_ner_bc5cdr_md"
 ENTITY_TYPES = ["DISEASE", "CHEMICAL"]
 LABEL_LIST = ["O"] + [f"{p}-{etype}" for etype in ENTITY_TYPES for p in ["B", "I"]]
@@ -111,7 +110,7 @@ def compute_class_weights(labels_list, n_labels):
 # ========== Main ==========
 
 def main():
-    train_path = '/datasets/ClinGen_TrainingSet.csv'
+    train_path = '/datasets/ACI-TaskB-TrainingSet.csv'
     val_path   = '/datasets/ACI-TaskB-ValidationSet.csv'
     test_path  = '/datasets/ACI-TaskB-TestingSet.csv'
     outdir = '/outputs/stage1_outputs'
@@ -161,7 +160,7 @@ def main():
     # ========== Weighted loss, Trainer-style ==========
 
     class CustomTrainer(Trainer):
-        def compute_loss(self, model, inputs, return_outputs=False):
+        def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch: int | None = None, **kwargs):
             labels = inputs.get("labels")
             # Forward pass
             outputs = model(**{k: v for k, v in inputs.items() if k != "labels"})
@@ -173,12 +172,13 @@ def main():
 
     args = TrainingArguments(
         output_dir=os.path.join(outdir, 'checkpoints'),
-        evaluation_strategy="epoch",
+        eval_strategy="epoch",
         save_strategy="epoch",
         learning_rate=1e-5,
         per_device_train_batch_size=2,
         per_device_eval_batch_size=2,
-        num_train_epochs=40,
+        num_train_epochs=60,
+        save_total_limit=3,
         weight_decay=0.01,
         logging_dir=os.path.join(outdir, 'logs'),
         logging_steps=40,
@@ -225,3 +225,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
+
