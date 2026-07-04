@@ -3,7 +3,7 @@ ClinGen-DSDA: Few-Shot Clinical Note Generation via Entity-Guided Dual-Stage Att
 
 # Requirements
 
-Please install required packages using:
+Please install required packages using
 
 
 pip install -r requirements.txt
