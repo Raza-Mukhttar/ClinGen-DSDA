@@ -1,5 +1,3 @@
-# Prompt Projection
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -77,6 +75,9 @@ class PromptProjection(nn.Module):
         print("First prompt vector (batch 0):", prompt_embeds[0, 0, :5].detach().cpu().numpy(), "...")  # Print first 5 dims for clarity
         print("=" * 50)
         return prompt_embeds  # [B, P, H]
+
+
+
 
 
 
