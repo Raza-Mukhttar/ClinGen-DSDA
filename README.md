@@ -23,11 +23,20 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4 python Stage4.py
 
 # Step 2: Evaluation 
 
-python Evaluation.py
+   CUDA_VISIBLE_DEVICES=0,1,2,3,4 python evaluate_clingen.py \
+       --checkpoint outputs/multiseed/stage4/seed_42/best_model_trainable \
+       --data_csv   datasets/ACI-TaskB-TestingSet.csv \
+       --out_dir    outputs/eval/seed_42 \
+       --batch_size 1
+
 
 # Step 3: Inference to check the output
 
-python Inference.py
+   CUDA_VISIBLE_DEVICES=0,1,2,3,4 python infer_clingen.py \
+       --checkpoint outputs/multiseed/stage4/seed_42/best_model_trainable \
+       --input_csv  datasets/new_dialogues.csv \
+       --out_jsonl  outputs/inference/notes.jsonl \
+       --batch_size 1
 
 Give an dialogue an example as input - model will generate the note
 
