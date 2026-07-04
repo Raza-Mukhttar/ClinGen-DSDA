@@ -1,5 +1,3 @@
-# DSDA
-
 import os
 import torch
 import torch.nn as nn
@@ -18,6 +16,8 @@ class BiasedAttentionEncoder(nn.Module):
         self.score_proj = nn.Linear(hidden_size, 1)  # Stage 1: Importance scoring
         self.attn = nn.MultiheadAttention(hidden_size, num_heads=4, batch_first=True)  # Stage 2: Focused attention
         self.top_k_ratio = top_k_ratio
+        # intermediate attention weights for analysis
+        self.last_attention = None
 
     def forward(self, input_ids, attention_mask, entity_pred_ids):
         # Stage 1: Contextual encoding + Entity embedding bias
@@ -31,6 +31,8 @@ class BiasedAttentionEncoder(nn.Module):
         scores = scores.masked_fill(attention_mask == 0, float('-inf'))
         weights = torch.softmax(scores, dim=-1)  
 
+        # intermediate attention weights for analysis
+        self.last_attention = weights.detach() #.cpu().numpy()
         # Stage 3: Select Top-K important tokens
         B, L, H = h.size()
         K = max(1, int(self.top_k_ratio * L))
@@ -127,6 +129,9 @@ def preprocess_and_save(
         os.path.join(outdir, f"{split_name}_stage2_outputs.pt")
     )
     print(f"Saved: {os.path.join(outdir, f'{split_name}_stage2_outputs.pt')}")
+
+
+
 
 
 
