@@ -1,7 +1,7 @@
 # =============================================================================
 #
 # Recommended run:
-#   CUDA_VISIBLE_DEVICES=0,1,2,3,4 python Train_MultiSeed_Llama70B_ORIGINAL_QLORA_MULTI_DEVICE_FIXED.py --seeds 42
+#   CUDA_VISIBLE_DEVICES=0,1,2,3,4 python Stage4.py --seeds 42
 #
 # =============================================================================
 
