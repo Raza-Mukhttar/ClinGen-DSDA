@@ -1,19 +1,4 @@
 # =============================================================================
-# clingen_common.py
-#
-# Shared loading / preprocessing / generation helpers for ClinGen-DSDA
-# evaluation and inference. Every architectural choice here mirrors the
-# training script (Stage4.py) so that a checkpoint trained by Stage4.py is
-# reconstructed byte-for-byte the same way at eval / inference time.
-#
-#   - Rebuilds PromptedLlamaMultiTask (4-bit QLoRA Llama-3-70B + soft prompt
-#     + prompt_proj_to_llama + ner_head).
-#   - Loads the trainable-only checkpoint produced by Stage4._save_trainable():
-#         <ckpt>/lora_adapter/                     (PEFT adapter)
-#         <ckpt>/custom_trainable_modules.pt       (soft_prompt, proj, ner_head, config)
-#   - Runs the Stage1/2/3 preprocessing pipeline to build prompt_embeds.
-#   - Generates notes with the identical [prompt ; soft ; input] inputs_embeds
-#     path and the identical generation kwargs used in Stage4.prediction_step.
 # =============================================================================
 
 import os
@@ -52,7 +37,7 @@ from transformers import (
 # -----------------------------------------------------------------------------
 # Paths / constants — identical defaults to Stage4.py, all overridable via env.
 # -----------------------------------------------------------------------------
-PROJECT_ROOT = os.environ.get("CLINGEN_ROOT", "/home/raza/EMRV1/EMRV2/EMRV1/EMRV2")
+PROJECT_ROOT = os.environ.get("CLINGEN_ROOT", "/home/project")
 if os.path.isdir(PROJECT_ROOT):
     os.chdir(PROJECT_ROOT)
 sys.path.insert(0, PROJECT_ROOT)
